@@ -2,7 +2,13 @@
 class TestClass
 
 	def initialize (farbe='gruen')
-		puts farbe
+		puts "Farbe der Initalisierung: #{farbe}"
+	end
+
+	def methode_multiplikation(zahl1,zahl2)
+		ergebis=zahl1*zahl2
+		puts "#{ergebis} ist #{ergebis.class}"
+
 	end
 
 
@@ -36,6 +42,9 @@ class TestClass2 < TestClass
 end
 
 
-meinTest=TestClass2.new
+meinTest=TestClass2.new 'blau'
 
-meinTest.methode_ohne_paramter
+meinTest.methode_multiplikation 23399,994884
+
+
+
