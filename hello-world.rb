@@ -104,7 +104,7 @@ class Vergleiche_Schleifen
 
 	def wiederholungMitUpTo(text,von,bis)
 
-		von.upto bis do |i|
+		von.upto(bis) do |i|
 			puts "#{text} Nummer:#{i}"
 		end
 
@@ -114,12 +114,96 @@ class Vergleiche_Schleifen
 end
 
 
+class ArrayUndHashes
+
+	def initialize
+
+		@zahlenreihe=Array.new
+		@toDoListe=Array.new
+		@verbindung=Array.new
+
+	end
+
+
+	def iniArrayMitZahlenVonBis(von,bis)
+
+		von.upto(bis) do |i|
+			@zahlenreihe<<i
+		end
+	end
+
+
+	# Arry mitforschleife ausgeben
+	def ausgabeZahlenreihe
+		for i in (0...@zahlenreihe.length)
+			puts @zahlenreihe[i]
+		end
+	end
+
+	def hinzufuegenZurToDoListe(neuesToDo)
+		@toDoListe<<neuesToDo
+	end
+
+	#Arry mit do each Schleife ausgeben
+	def ausgabeDotoListe
+		@toDoListe.each do |todo|
+			puts todo
+		end
+	end
+
+	#Hash mit Verbindundsaten
+
+	def neueVerbindung (user,password,url,port)
+		@verbindung={'username'=>user,'userpassword'=>password,'serverurl'=>url,'serverport'=>port}		
+	end
+
+	def ausgabeVerbindungsdaten
+		puts "Definierte Parameter: #{@verbindung.count}"
+		@verbindung.each do |paramter|
+			puts paramter
+		end
+	end
+
+	def ausgabeUsername
+		@verbindung['username']
+	end
+
+
+end
+
+
+# Test mit Array und Hashes
+
+meinArry_Hash=ArrayUndHashes.new
+
+
+meinArry_Hash.neueVerbindung 'simon.goetz','test','www.feedon.me','21'
+puts "Ausgabe nur des Benutzernamens: #{meinArry_Hash.ausgabeUsername}"
+meinArry_Hash.ausgabeVerbindungsdaten
+
+
+
+meinArry_Hash.iniArrayMitZahlenVonBis 5,10
+meinArry_Hash.ausgabeZahlenreihe
+
+meinArry_Hash.hinzufuegenZurToDoListe 'OP'
+meinArry_Hash.hinzufuegenZurToDoListe 'Essen'
+
+meinArry_Hash.ausgabeDotoListe
+
+meinArry_Hash.hinzufuegenZurToDoListe 'Schlafen'
+meinArry_Hash.ausgabeDotoListe
+
+
+
+
+# Test mit Schleifen und Vergleichen
 meinVergleich=Vergleiche_Schleifen.new
 
 puts meinVergleich.istZahlGroesserAls 8,6
 meinVergleich.wiederholeText_While 'He Ihr: Wiederholung mit Whileschleife', 5
 meinVergleich.wiederholungMitTimes 'He Ihr: Wiederholung mit Whileschleife und Times', 5
-meinVergleich.wiederholungMitUpTo 'He Ihr: Wiederholung mit Whileschleife und Upto',5,10
+meinVergleich.wiederholungMitUpTo 'He Ihr: Wiederholung mit Whileschleife und Upto',555,559
 
 
 
