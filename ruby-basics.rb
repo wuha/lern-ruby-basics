@@ -133,9 +133,9 @@ class ArrayUndHashes
 	end
 
 
-	# Arry mitforschleife ausgeben
+	# Arry mit Range-forschleife ausgeben
 	def ausgabeZahlenreihe
-		for i in (0...@zahlenreihe.length)
+		for i in (0..@zahlenreihe.length)
 			puts @zahlenreihe[i]
 		end
 	end
@@ -154,13 +154,14 @@ class ArrayUndHashes
 	#Hash mit Verbindundsaten
 
 	def neueVerbindung (user,password,url,port)
-		@verbindung={'username'=>user,'userpassword'=>password,'serverurl'=>url,'serverport'=>port}		
+		#Hash wird mit Parametern gefüllt. Es werden Symbole als Schlüssel verwendet
+		@verbindung={:username=>user,:userpassword=>password,:serverurl=>url,:serverport=>port}		
 	end
 
 	def ausgabeVerbindungsdaten
 		puts "Definierte Parameter: #{@verbindung.count}"
-		@verbindung.each do |paramter|
-			puts paramter
+		@verbindung.each do |key,value|
+			puts "Parameter: #{key} - Wert: #{value}"
 		end
 	end
 
@@ -183,7 +184,7 @@ meinArry_Hash.ausgabeVerbindungsdaten
 
 
 
-meinArry_Hash.iniArrayMitZahlenVonBis 5,10
+meinArry_Hash.iniArrayMitZahlenVonBis 5,15
 meinArry_Hash.ausgabeZahlenreihe
 
 meinArry_Hash.hinzufuegenZurToDoListe 'OP'
